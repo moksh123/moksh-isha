@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moksh ❤️ Isha</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    }
+    button {
+      margin: 10px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      background: #ff4b5c;
+      color: white;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background: #e84118;
+      transform: scale(1.05);
+    }
+    section {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+
+    /* Floating Hearts Background */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .hearts span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255,0,100,0.6);
+      margin: -10px;
+      border-radius: 50%;
+      animation: animate 10s linear infinite;
+    }
+    @keyframes animate {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* Memories Polaroid Style */
+    .memories-container {
+      position: relative;
+      min-height: 100vh;
+      background: #fff5f7;
+      padding: 30px;
+    }
+    .polaroid {
+      position: absolute;
+      width: 200px;
+      background: white;
+      padding: 10px;
+      border: 2px solid #ccc;
+      box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
+      transform: rotate(var(--rot));
+      transition: transform 0.3s;
+    }
+    .polaroid img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .polaroid p {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #444;
+      font-weight: bold;
+    }
+    .polaroid:hover {
+      transform: scale(1.05) rotate(0deg);
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .polaroid {
+        width: 130px;
+      }
+    }
+
+    #congrats {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e84118;
+      margin-top: 20px;
+    }
+
+    /* Love Notes Section */
+    #notes-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    #notes-container textarea {
+      width: 90%;
+      height: 100px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      resize: none;
+    }
+    .note {
+      background: #ffe6eb;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts">
+    <span style="left:10%; animation-delay:0s;"></span>
+    <span style="left:20%; animation-delay:2s;"></span>
+    <span style="left:30%; animation-delay:4s;"></span>
+    <span style="left:70%; animation-delay:1s;"></span>
+    <span style="left:80%; animation-delay:3s;"></span>
+  </div>
+
+  <header>
+    <h1 style="font-size: 40px; color: #ff0055; text-shadow: 2px 2px 5px white;">
+      Moksh ❤️ Isha
+    </h1>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('countdown')">Countdown</button>
+    <button onclick="showSection('memories')">Our Memories</button>
+    <button onclick="showSection('notes')">Love Notes</button>
+  </header>
+
+  <!-- Home -->
+  <section id="home" class="active">
+    <h2 style="font-size:30px;">Our Beautiful Journey 💕</h2>
+    <p style="font-size:20px;">On <b>16th July 2025</b>, our story began.  
+    Every moment since then has been magical, and this is just the beginning of forever. 🌹</p>
+    <div id="congrats"></div>
+  </section>
+
+  <!-- Countdown -->
+  <section id="countdown">
+    <h2>Time Since We Met 💑</h2>
+    <div id="timer" style="font-size:22px; font-weight:bold;"></div>
+    <p>Continue....</p>
+  </section>
+
+  <!-- Memories -->
+  <section id="memories">
+    <h2>Our Memories 📸</h2>
+    <div class="memories-container">
+      <!-- All scattered polaroid photos -->
+      <div class="polaroid" style="top:10%; left:10%; --rot:-5deg;">
+        <img src="1000034771.png" alt="Memory 1"><p>Special Day</p>
+      </div>
+      <div class="polaroid" style="top:15%; left:50%; --rot:8deg;">
+        <img src="1000034774.png" alt="Memory 2"><p>Smiles</p>
+      </div>
+      <div class="polaroid" style="top:45%; left:20%; --rot:-10deg;">
+        <img src="1000034773.png" alt="Memory 3"><p>Together</p>
+      </div>
+      <div class="polaroid" style="top:60%; left:60%; --rot:5deg;">
+        <img src="1000034793.png" alt="Memory 4"><p>Our Moment</p>
+      </div>
+      <div class="polaroid" style="top:30%; left:75%; --rot:-7deg;">
+        <img src="1000034772.png" alt="Memory 5"><p>Love</p>
+      </div>
+      <div class="polaroid" style="top:65%; left:5%; --rot:12deg;">
+        <img src="1000031297.jpg" alt="Memory 6"><p>Happy</p>
+      </div>
+      <div class="polaroid" style="top:10%; left:75%; --rot:-4deg;">
+        <img src="1000033000 (1).png" alt="Memory 7"><p>Us 💕</p>
+      </div>
+      <div class="polaroid" style="top:55%; left:40%; --rot:6deg;">
+        <img src="1000031299.jpg" alt="Memory 8"><p>Cuties</p>
+      </div>
+      <div class="polaroid" style="top:25%; left:35%; --rot:-6deg;">
+        <img src="1000031298.jpg" alt="Memory 9"><p>Forever</p>
+      </div>
+      <div class="polaroid" style="top:75%; left:70%; --rot:10deg;">
+        <img src="IMG_20250615_113659122_MF_PORTRAIT.jpg" alt="Memory 10"><p>Special</p>
+      </div>
+      <div class="polaroid" style="top:40%; left:5%; --rot:-9deg;">
+        <img src="IMG_20250628_183519919_MF_PORTRAIT.jpg" alt="Memory 11"><p>Beautiful</p>
+      </div>
+      <div class="polaroid" style="top:15%; left:25%; --rot:7deg;">
+        <img src="IMG_20250411_163947579_AE.jpg" alt="Memory 12"><p>Sweet</p>
+      </div>
+      <div class="polaroid" style="top:55%; left:80%; --rot:-8deg;">
+        <img src="IMG_20250412_200743205_AE (1).jpg" alt="Memory 13"><p>Joy</p>
+      </div>
+      <div class="polaroid" style="top:70%; left:30%; --rot:5deg;">
+        <img src="IMG_20250604_182214324_MF_PORTRAIT.jpg" alt="Memory 14"><p>Forever Us</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Love Notes -->
+  <section id="notes">
+    <h2>Our Love Notes 💌</h2>
+    <div id="notes-container">
+      <textarea id="noteInput" placeholder="Write a sweet note..."></textarea><br>
+      <button onclick="addNote()">Add Note</button>
+      <div id="notesList"></div>
+    </div>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    // Timer since relationship start
+    const startDate = new Date("July 16, 2025 00:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = now - startDate;
+
+      const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30.44));
+      const days = Math.floor((distance / (1000*60*60*24)) % 30.44);
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      document.getElementById("timer").innerHTML = 
+        `${months} Months, ${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+    }, 1000);
+
+    // Monthly congratulations
+    function checkCongrats() {
+      const now = new Date();
+      if (now.getDate() === 16) {
+        const months = (now.getFullYear() - 2025) * 12 + (now.getMonth() - 6); 
+        if (months >= 0) {
+          document.getElementById("congrats").innerText = 
+            `🎉 Congratulations Moksh ❤️ Isha on ${months+1} months of togetherness! 💖`;
+        }
+      } else {
+        document.getElementById("congrats").innerText = "";
+      }
+    }
+    setInterval(checkCongrats, 1000 * 60 * 60); 
+    checkCongrats();
+
+    // Love Notes system with localStorage
+    function loadNotes() {
+      const notes = JSON.parse(localStorage.getItem("loveNotes")) || [];
+      const list = document.getElementById("notesList");
+      list.innerHTML = "";
+      notes.forEach((note) => {
+        const div = document.createElement("div");
+        div.className = "note";
+        div.innerText = note;
+        list.appendChild(div);
+      });
+    }
+
+    function addNote() {
+      const input = document.getElementById("noteInput");
+      const note = input.value.trim();
+      if (note) {
+        const notes = JSON.parse(localStorage.getItem("loveNotes")) || [];
+        notes.push(note);
+        localStorage.setItem("loveNotes", JSON.stringify(notes));
+        input.value = "";
+        loadNotes();
+      }
+    }
+
+    loadNotes();
+  </script>
+</body>
+</html>
